@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import BarCalendar from './components/days/BarCalendar';
+import Filters from './components/filters/Filters';
+import Tabla from './components/results/Tabla';
+import Calendario from './components/calendar/Calendario';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="sportData">
+      <div className="toolCalendar">
+          <BarCalendar />
+          <Calendario />
+      </div>
+      <Filters/>
+      <Tabla/>
+
     </div>
   );
 }

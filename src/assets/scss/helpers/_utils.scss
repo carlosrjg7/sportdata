@@ -1,0 +1,6 @@
+.content {
+    @include xl {
+      max-width: 1366px !important;
+      margin: 0 auto !important;
+    }
+  }
