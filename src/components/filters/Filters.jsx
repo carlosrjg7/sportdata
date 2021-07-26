@@ -1,13 +1,13 @@
-import React,{Fragment} from 'react'
+import React from 'react'
 import Competicion from './competicion/Competicion';
 import Status from './status/FilterStatus';
 
 const Filters = () => {
     return (
-        <Fragment>
-            <Competicion/>
+        <div className="filtros">
             <Status/>
-        </Fragment>
+            <Competicion/>
+        </div>
     )
 }
 

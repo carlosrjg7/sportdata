@@ -1,8 +1,8 @@
 //@import 'bootstrap/dist/css/bootstrap.min.css';
 
-@import './base/fonts','./base/base';
+@import './base/fonts','./base/base','./base/typography','./base/colors';
 
-@import './components/selects','./components/inputs','./components/buttons';
+@import './components/selects','./components/inputs','./components/buttons','./components/filters','./components/results';
 
 @import './abstracts/mixins';
 

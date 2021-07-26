@@ -16,31 +16,44 @@ const BarCalendar = () => {
     }
 
     return (
-        <div>
+        <div className="bardays">
             <ul>
                 <li>
                     <button
+                        className="left"
                         type="button"
                         onClick={prev}
-                    >Prev</button>
+                    >
+                        <i class="fa fa-angle-left"></i>
+                    </button>
                 </li>
                 <li>
-                    {moment(hoy).subtract(1, 'day').format('DD MMMM')}
+                    <div onClick={prev}>
+                        <h4>{moment(hoy).subtract(1, 'day').format('dddd')}</h4>
+                        <p>{moment(hoy).subtract(1, 'day').format('DD MMMM')}</p>
+                    </div>
                 </li>
                 <li>
                     <div>
-                        {moment(hoy).format('DD MMMM')}
+                        <h4>{moment(hoy).format('dddd')}</h4>
+                        <p>{moment(hoy).format('DD MMMM')}</p>
                     </div>
                 </li>    
                 <li>
-                    {moment(hoy).add(1, 'day').format('DD MMMM')}
+                    <div onClick={next}>
+                        <h4>{moment(hoy).add(1, 'day').format('dddd')}</h4>
+                        <p>{moment(hoy).add(1, 'day').format('DD MMMM')}</p>
+                    </div>
                 </li>
 
                 <li>
                     <button
+                        className="right"
                         type="button"
                         onClick={next}
-                    >Next</button>
+                    >
+                        <i class="fa fa-angle-right"></i>
+                    </button>
                 </li>
             </ul>
         </div>

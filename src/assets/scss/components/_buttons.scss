@@ -1,0 +1,37 @@
+button{
+    width: 100%;
+    height: 100%;
+    padding:0 20px;
+    background: $dark;
+    color: $light;
+    border: none;
+    font-weight: bold;
+    border-radius: 7px;
+
+    &:hover{
+        background: $dark;
+        color: $main;
+    }
+
+    &.left{
+        border-radius: 7px 0px 0px 7px;
+    }
+
+    &.right{
+        border-radius: 0px 7px 7px 0px;
+    }
+    
+    i{
+        font-size: 20px !important;
+        font-weight: bold !important;
+    }
+
+    &.btn-calendar{
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        padding: 0;
+        margin-left: 15px;
+    }
+
+}

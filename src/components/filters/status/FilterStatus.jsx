@@ -2,11 +2,11 @@ import React from 'react'
 
 const FilterStatus = () => {
     return (
-        <div>
             <select name="" id="">
-                <option value="">1</option>
+                <option value="">En juego</option>
+                <option value="">Proximos</option>
+                <option value="">Finalizados</option>
             </select>
-        </div>
     )
 }
 

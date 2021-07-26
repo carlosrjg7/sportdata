@@ -2,11 +2,9 @@ import React from 'react'
 
 const Competicion = () => {
     return (
-        <div>
             <select name="" id="">
-                <option value="">1</option>
+                <option value="">Todas</option>
             </select>
-        </div>
     )
 }
 

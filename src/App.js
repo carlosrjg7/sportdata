@@ -13,8 +13,7 @@ function App() {
           <Calendario />
       </div>
       <Filters/>
-      <Tabla/>
-
+      <Tabla name={"Copa Libertadores"}/>
     </div>
   );
 }
