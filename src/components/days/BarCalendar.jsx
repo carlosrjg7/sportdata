@@ -24,7 +24,7 @@ const BarCalendar = () => {
                         type="button"
                         onClick={prev}
                     >
-                        <i class="fa fa-angle-left"></i>
+                        <i className="fa fa-angle-left"></i>
                     </button>
                 </li>
                 <li>
@@ -52,7 +52,7 @@ const BarCalendar = () => {
                         type="button"
                         onClick={next}
                     >
-                        <i class="fa fa-angle-right"></i>
+                        <i className="fa fa-angle-right"></i>
                     </button>
                 </li>
             </ul>
