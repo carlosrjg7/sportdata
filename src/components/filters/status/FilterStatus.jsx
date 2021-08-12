@@ -1,24 +1,42 @@
-import React, {useState} from 'react'
+import React, { Fragment, useContext } from 'react';
+//import LigasContext from '../../../context/ligas/LigasContext';
+import { LoaderContext } from '../../../context/loader/LoaderProvider';
+import MatchesContext from '../../../context/matches/MatchesContext';
 
 const FilterStatus = () => {
 
     const initialState = [
-        {id: "1", name: "En juego"},
-        {id: "2", name: "Próximos"},
-        {id: "3", name: "Finalizados"},
-        {id: "4", name: "Aplazados"},
+        {id: "0", name: "Todos"},
+        {id: "inplay", name: "En juego"},
+        {id: "notstarted", name: "No Iniciados"},
+        {id: "finished", name: "Finalizados"},
     ]
 
-    const [filtro, setFiltro] = useState(initialState);
+    const filtro = initialState;
+
+    const { filterStatus, setStatus } = useContext(MatchesContext);
+
+    const { setCarga } = useContext(LoaderContext);
+
+    const selectStatus = (e) => {
+        setCarga(true);
+        setStatus(true);
+        filterStatus( e.target.value );
+    }
 
     return (
-            <select name="" id="">
-                {
-                    filtro.map((item) => (
-                        <option value={item.id} key={item.id}>{item.name}</option>
-                    ))
-                }
-            </select>
+            <Fragment>
+                <label htmlFor="status"></label>
+                <select id="status"
+                onChange={selectStatus}
+                >
+                    {
+                        filtro.map((item) => (
+                            <option value={item.id} key={item.id}>{item.name}</option>
+                        ))
+                    }
+                </select>
+            </Fragment>
     )
 }
 

@@ -1,4 +1,10 @@
 .filtros{
     display: flex;
     justify-content: space-around;
+    gap: 10px;
+    flex-direction: column;
+
+    @include sm {
+        flex-direction: row;
+    }
 }

@@ -7,10 +7,18 @@ button{
     border: none;
     font-weight: bold;
     border-radius: 7px;
+    cursor: pointer;
+
+    &.disabled{
+        background-color: #ccc;
+        &:hover{
+            background: #ccc;
+        }
+    }
 
     &:hover{
         background: $dark;
-        color: $main;
+        color: #fff;
     }
 
     &.left{

@@ -1,14 +1,14 @@
-import React, {useState,forwardRef} from 'react';
+import React, {forwardRef,useContext} from 'react';
 import DatePicker,{ registerLocale } from  "react-datepicker";
 import es from 'date-fns/locale/es';
 import 'react-datepicker/dist/react-datepicker.css';
+import DateContext from './../../context/date/DateContext';
 import moment from 'moment';
-import 'moment/locale/es';
 
 const Calendario = () => {
     registerLocale('es', es);
-    moment.locale('es');
-    const [date, setDate] = useState(new Date());
+
+    const {date, setDate} = useContext(DateContext);
     
     const onchange = (date) =>{
         setDate(date);
@@ -20,11 +20,16 @@ const Calendario = () => {
         </button>
       ));
 
+    const startDate = moment().subtract(1, 'week');
+    const maxDate = moment().add(1, 'week');
+
     return (
         <div>
             <DatePicker 
                 locale="es" 
-                selected={date}
+                selected={new Date(date)}
+                minDate={new Date(startDate)}
+                maxDate={new Date(maxDate)}
                 customInput={<ExampleCustomInput />} 
                 onChange={onchange}/>
         </div>

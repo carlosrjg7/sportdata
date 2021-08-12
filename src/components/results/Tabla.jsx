@@ -1,63 +1,83 @@
-import React,{useState} from 'react'
+import React,{ Fragment, useContext, useState, useEffect } from 'react'
+import MatchesContext from '../../context/matches/MatchesContext';
+import Li from './Li';
+import LigasContext from '../../context/ligas/LigasContext';
+import NotResults from './NotResults';
 
-const Tabla = ({name}) => {
 
-    const matchInit = [
-        {   
-            id: 1,
-            local:"Barcelona S.C sasasasas asas", 
-            flagLocal:"1",
-            recordLocal: "2", 
-            visit: "Vélez Sarsfield", 
-            flagVisit:"1",
-            time: "16:20",
-            recordVisit: "2",
-        },
-        {   
-            id: 2,
-            local:"Barcel S.C 2", 
-            flagLocal:"1",
-            recordLocal: "3", 
-            visit: "Vélez 2", 
-            flagVisit:"1",
-            time: "17:59",
-            recordVisit: "0",
-        },
-        {   
-            id: 3,
-            local:"Barcel S.C 2", 
-            flagLocal:"1",
-            recordLocal: "3", 
-            visit: "Vélez 2", 
-            flagVisit:"1",
-            time: "17:59",
-            recordVisit: "0",
+const Tabla = () => {
+
+    const { matches, MatchTemp, status } = useContext(MatchesContext);
+    const { ligas } = useContext(LigasContext);
+
+    const getLigaName = (id) =>{
+        const liga = ligas.filter( item => item.league_id === id);
+        return liga[0].name;
+    }
+
+    const [vacio, setVacio] = useState(false);
+
+    const [Match, setMatch] = useState([]);
+
+    useEffect(() => {
+
+        if(status){
+
+            if(MatchTemp){
+                if(Object.entries(MatchTemp).length > 0){
+                    setVacio(false);
+                    setMatch(MatchTemp);
+                }else{
+                    setVacio(true);
+                }
+            }else{
+                console.log('nada en matches');
+            }            
+
+        }else{
+
+            if(matches){
+                if(Object.entries(matches).length > 0){
+                    setVacio(false);
+                    setMatch(matches);
+                }else{
+                    setVacio(true);
+                }
+            }else{
+                console.log('nada en matches');
+            }
+
         }
-    ];
 
-    const [match, setMatch] = useState(matchInit);
+
+
+    }, [matches,status,MatchTemp])
 
     return (
-        <div className="result">
-            <div className="title">
-                <h2><i className="fa fa-trophy"></i> {name}</h2>
-            </div>
-            
-            <ul className="list">
-                {
-                    match.map(item => (
-                        <li key={item.id}>
-                            <div className="local">{item.local}<span><i className="fa fa-trophy"></i></span></div>
-                            <div className="marker">{item.recordLocal} - {item.recordVisit}</div>
-                            <div className="visit"><span><i className="fa fa-trophy"></i></span>{item.visit}</div>
-                            <div className="time">{item.time} PET <span><i className="fa fa-trophy"></i></span></div>
-                        </li>
-                    ))
-                }   
-            </ul>
-
-        </div>
+        <Fragment>
+            {
+                !vacio ?
+                Match.map((item, index) => (
+                    item.length > 0 ?
+                    <div className="result" key={index}>
+                        <div className="title">
+                            <h2><i className="fa fa-trophy"></i> {getLigaName( item[0].league_id )} </h2>
+                        </div>
+                    
+                        <ul className="list">
+                            {
+                                item.map((res,index) => (
+                                    <Li  item={res}  key={index}/>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                    : setVacio(true)
+                ))
+                : <NotResults/>
+        }
+        </Fragment>
     )
 }
 
-export default Tabla
+export default Tabla;

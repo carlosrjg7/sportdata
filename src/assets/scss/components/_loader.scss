@@ -1,0 +1,46 @@
+:root{
+    --gradient: linear-gradient(
+        45deg,
+        #f8f8ff,
+        #cac9cd,
+        #f8f8ff
+    );
+}
+
+.loader{
+    background: $light;
+    margin-top: 1rem;
+    border-radius: 7px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background-color: #FFF;
+    
+    .titulo{
+        background: $dark;
+        height: 27px;
+        padding-top: 1rem;
+        .line{
+            width: 80%;
+            margin: 0rem auto;
+        }
+    }
+
+    .line{
+        height: 10px;
+        width: 80%;
+        background: rgba(202, 201, 205, 1); 
+        margin: 1rem auto;
+        border-radius: 2px;
+        animation: pulse .7s infinite linear alternate;
+    }
+}
+
+@keyframes pulse {
+    0%{
+        background: rgba(202, 201, 205, 1); 
+    }
+    100%{
+        background: rgba(202, 201, 205, .2); 
+    }
+
+}

@@ -1,38 +1,35 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import BarCalendar from './components/days/BarCalendar';
 import Filters from './components/filters/Filters';
-import Tabla from './components/results/Tabla';
 import Calendario from './components/calendar/Calendario';
-import clienteAxios from './config/axios';
+import DataState from './context/date/DataState';
+import LigasState from './context/ligas/LigasState';
+import SeasonState from './context/season/SeasonState';
+import MatchesState from './context/matches/MatchesState';
+import LoaderProvider from './context/loader/LoaderProvider';
+import Results from './components/results/Results';
 
 function App() {
 
-  console.log(process.env.REACT_APP_API_URL);
-
-  useEffect(() => {
-      
-    matches();
-
-  }, []);
-
-  const matches = async () =>{
-    const liga = await clienteAxios.get('/soccer/leagues');
-    console.log(liga);
-
-    const season = await clienteAxios.get('/soccer/seasons?league_id=13');
-    console.log(season);
-  }
-  
-
   return (
-    <div className="sportData">
-      <div className="toolCalendar">
-          <BarCalendar />
-          <Calendario />
-      </div>
-      <Filters/>
-      <Tabla name={"Copa Libertadores"}/>
-    </div>
+    <DataState>
+      <LigasState>
+        <SeasonState>
+          <LoaderProvider>
+            <MatchesState>
+              <div className="sportData">
+                <div className="toolCalendar">
+                    <BarCalendar />
+                    <Calendario />
+                </div>
+                <Filters/>
+                <Results/>
+              </div>
+            </MatchesState>
+          </LoaderProvider>
+        </SeasonState>
+      </LigasState>
+    </DataState>
   );
 }
 
