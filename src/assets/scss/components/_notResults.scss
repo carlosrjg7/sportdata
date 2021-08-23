@@ -1,12 +1,15 @@
 .notResults{
     background: $light;
-    margin-top: 1rem;
+    margin: 1rem 0;
     border-radius: 7px;
     overflow: hidden;
     margin-bottom: 1rem;
     background-color: #FFF;
+    font-size: 16px;
     
-    h3{
+    .h3{
         text-align: center;
+        margin: 23px 0px;
+        font-size: 1em;
     }
 }

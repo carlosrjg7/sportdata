@@ -28,6 +28,7 @@ const FilterLiga = () => {
 
     return (
         <select
+            className="select" 
             onChange={selectLiga}
         >   
             <option value="0" key="null">Liga 1, Copa Libertadores, Champions League</option>

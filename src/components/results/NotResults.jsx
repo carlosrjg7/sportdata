@@ -3,7 +3,7 @@ import React from 'react'
 const NotResults = () => {
     return (
         <div className="notResults">
-            <h3>No hay resultados.</h3>
+            <h3 className="h3">No hay resultados.</h3>
         </div>
     )
 }

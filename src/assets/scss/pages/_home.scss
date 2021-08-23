@@ -1,10 +1,11 @@
 .sportData{
-    padding: 20px;
-    max-width: 500px;
+    padding: 10px;
+    max-width: 100%;
     background: $deep;
-    margin: 0 auto;
     border-radius: 9px;
     overflow: hidden;
+    box-sizing: content-box;
+    margin-bottom: 20px;
 }
 
 .toolCalendar{
@@ -16,7 +17,7 @@
 
 .bardays{
     
-    ul{
+    .ul{
         list-style: none;
         display: flex;
         justify-content: center;
@@ -25,7 +26,7 @@
         height: 50px;
         margin: 0;        
 
-        li{
+        .li{
             background: #fff;
             height: 100%;
             display: flex;
@@ -34,17 +35,20 @@
             box-sizing: content-box;
             transition: 0.25s;
             justify-content: center;
+            padding: 0px !important;
             
             &:first-child{
                 border-width: 0px 1px 0px 0px;
                 border-style: solid;
                 border-color: $deep;
+                background: transparent;
             }
 
             &:last-child{
                 border-width: 0px 0px 0px 1px;
                 border-style: solid;
                 border-color: $deep;
+                background: transparent;
             }
             
             &:nth-child(3):nth-last-child(3){
@@ -55,7 +59,7 @@
             }
 
             &:not(:first-child,:last-child){
-                width: 80px;
+                width: 90px;
                 padding: 0 0px;
                 display: none;
                 
@@ -64,10 +68,11 @@
                     color: #fff;
                 }
 
-                @include sm{
-                    padding: 0 15px;
-                    display: flex;
-                }
+                // @include sm{
+                //     padding: 0 15px;
+                //     display: flex;
+                //     width: 80px;
+                // }
             }
 
             h4,p{
@@ -77,7 +82,7 @@
             }
 
             h4{
-                font-size: 1rem;
+                font-size: 14px;
                 text-transform: capitalize;
             }
 

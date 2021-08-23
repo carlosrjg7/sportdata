@@ -13,12 +13,15 @@
     "react-datepicker": "^4.1.1",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "rewire": "^5.0.0",
     "sass": "^1.35.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:wp": "node ./scripts/build-non-split.js",
+    "moveout": "cp -r ./build/ ./../",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

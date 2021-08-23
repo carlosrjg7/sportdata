@@ -43,8 +43,8 @@ const BarCalendar = () => {
 
     return (
         <div className="bardays">
-            <ul>
-                <li>
+            <ul className="ul">
+                <li className="li">
                     <button
                         className={`left ${ disableMin ? 'disabled' : '' }`}
                         type="button"
@@ -54,26 +54,26 @@ const BarCalendar = () => {
                         <i className="fa fa-angle-left"></i>
                     </button>
                 </li>
-                <li>
+                <li className="li">
                     <div onClick={prev}>
                         <h4>{moment(date).subtract(1, 'day').format('dddd')}</h4>
                         <p>{moment(date).subtract(1, 'day').format('DD MMMM')}</p>
                     </div>
                 </li>
-                <li>
+                <li className="li">
                     <div>
                         <h4>{moment(date).format('dddd')}</h4>
                         <p>{moment(date).format('DD MMMM')}</p>
                     </div>
                 </li>    
-                <li>
+                <li className="li">
                     <div onClick={next}>
                         <h4>{moment(date).add(1, 'day').format('dddd')}</h4>
                         <p>{moment(date).add(1, 'day').format('DD MMMM')}</p>
                     </div>
                 </li>
 
-                <li>
+                <li className="li">
                     <button
                         className={`right ${ disableMax ? 'disabled' : '' }`}
                         type="button"

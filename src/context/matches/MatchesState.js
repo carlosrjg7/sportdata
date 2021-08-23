@@ -18,6 +18,8 @@ const MatchesState = (props) => {
 
     useEffect(() => {
         setCarga(true);
+        setStatus(false);
+        setMatchTemp([]);
         const getMAtches = async(season) => {
             //aqui traigo los matches para esas seasons 
             const mas = [];

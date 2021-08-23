@@ -1,7 +1,7 @@
-import React, { Fragment, useContext } from 'react';
-//import LigasContext from '../../../context/ligas/LigasContext';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { LoaderContext } from '../../../context/loader/LoaderProvider';
 import MatchesContext from '../../../context/matches/MatchesContext';
+import DateContext from '../../../context/date/DateContext';
 
 const FilterStatus = () => {
 
@@ -10,25 +10,38 @@ const FilterStatus = () => {
         {id: "inplay", name: "En juego"},
         {id: "notstarted", name: "No Iniciados"},
         {id: "finished", name: "Finalizados"},
-    ]
+    ];
 
     const filtro = initialState;
+
+    const { date } = useContext(DateContext);
 
     const { filterStatus, setStatus } = useContext(MatchesContext);
 
     const { setCarga } = useContext(LoaderContext);
+    
+    const [select, setSelect] = useState("0");
 
     const selectStatus = (e) => {
         setCarga(true);
         setStatus(true);
+        setSelect(e.target.value);
         filterStatus( e.target.value );
     }
+
+
+    useEffect(() => {
+        setSelect("0");
+    }, [date])
 
     return (
             <Fragment>
                 <label htmlFor="status"></label>
-                <select id="status"
-                onChange={selectStatus}
+                <select
+                    className="select" 
+                    id="status"
+                    value={select}
+                    onChange={selectStatus}
                 >
                     {
                         filtro.map((item) => (
