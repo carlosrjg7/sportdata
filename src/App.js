@@ -17,7 +17,7 @@ function App() {
         <SeasonState>
           <LoaderProvider>
             <MatchesState>
-              <div className="widget">
+              <div className="sportDataFull">
                 <div className="sportData">
                   <div className="toolCalendar">
                       <BarCalendar />

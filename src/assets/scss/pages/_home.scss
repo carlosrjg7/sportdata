@@ -1,6 +1,6 @@
 .sportData{
     padding: 10px;
-    max-width: 100%;
+    max-width: 530px;
     background: $deep;
     border-radius: 9px;
     overflow: hidden;
@@ -68,11 +68,11 @@
                     color: #fff;
                 }
 
-                // @include sm{
-                //     padding: 0 15px;
-                //     display: flex;
-                //     width: 80px;
-                // }
+                @include sm{
+                    padding: 0 15px;
+                    display: flex;
+                    width: 100px;
+                }
             }
 
             h4,p{
