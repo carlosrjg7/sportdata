@@ -17,13 +17,15 @@ function App() {
         <SeasonState>
           <LoaderProvider>
             <MatchesState>
-              <div className="sportData">
-                <div className="toolCalendar">
-                    <BarCalendar />
-                    <Calendario />
+              <div className="widget">
+                <div className="sportData">
+                  <div className="toolCalendar">
+                      <BarCalendar />
+                      <Calendario />
+                  </div>
+                  <Filters/>
+                  <Results/>
                 </div>
-                <Filters/>
-                <Results/>
               </div>
             </MatchesState>
           </LoaderProvider>

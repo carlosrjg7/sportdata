@@ -46,7 +46,7 @@ const BarCalendar = () => {
             <ul className="ul">
                 <li className="li">
                     <button
-                        className={`left ${ disableMin ? 'disabled' : '' }`}
+                        className={`btn left ${ disableMin ? 'disabled' : '' }`}
                         type="button"
                         onClick={prev}
                         disabled={disableMin}
@@ -75,7 +75,7 @@ const BarCalendar = () => {
 
                 <li className="li">
                     <button
-                        className={`right ${ disableMax ? 'disabled' : '' }`}
+                        className={`btn right ${ disableMax ? 'disabled' : '' }`}
                         type="button"
                         onClick={next}
                         disabled={disableMax}

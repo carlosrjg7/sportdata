@@ -15,7 +15,7 @@ const Calendario = () => {
     }
 
     const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
-        <button className="btn-calendar" onClick={onClick} ref={ref}>
+        <button className="btn btn-calendar" onClick={onClick} ref={ref}>
             <i className="fa fa-calendar"></i>
         </button>
       ));
