@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:wp": "node ./scripts/build-non-split.js",
+    "build:wp": "node ./scripts/build-non-split.js && npm run moveout",
     "moveout": "cp -r ./build/ ./../",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

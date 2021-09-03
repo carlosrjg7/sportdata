@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 
+const target = document.querySelector("#app");
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('app')
+  target ? target : console.log(target) 
 );
 
